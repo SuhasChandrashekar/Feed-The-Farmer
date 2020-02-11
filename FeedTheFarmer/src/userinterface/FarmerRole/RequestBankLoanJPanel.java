@@ -144,15 +144,12 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 if (enterprise instanceof BankEnterprise) {
-                    for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                        if (organization instanceof BankManagerOrganization) {
-                            org = organization;
+                            org = enterprise;
                             //                            System.out.println("orgname" + organization.getName());
                             org.getWorkQueue().getWorkRequestList().add(request);
                             userAccount.getWorkQueue().getWorkRequestList().add(request);
                             break;
-                        }
-                    }
+                       
                 }
 
             }

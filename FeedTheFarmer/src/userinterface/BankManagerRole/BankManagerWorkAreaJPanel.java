@@ -5,6 +5,7 @@
 package userinterface.BankManagerRole;
 
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
 import Business.Organization.BankManagerOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
@@ -23,18 +24,20 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem business;
+    private Enterprise enterprise;
     private UserAccount userAccount;
     private BankManagerOrganization bankManagerOrganization;
     
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public BankManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
+    public BankManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
+        this.enterprise = enterprise;
         this.bankManagerOrganization = (BankManagerOrganization)organization;
         
         populateTable();
@@ -45,7 +48,7 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         
-        for(WorkRequest request : bankManagerOrganization.getWorkQueue().getWorkRequestList()){
+        for(WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[4];
             row[0] = request;
             row[1] = request.getSender().getEmployee().getName();
@@ -181,6 +184,8 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
         }
         
         BankLoanWorkRequest request = (BankLoanWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+        
+        if(request.getStatus().equalsIgnoreCase("Background completed")){
      
         request.setStatus("Processing");
         
@@ -188,6 +193,10 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        }
+        else{
+             JOptionPane.showMessageDialog(null, "Complete background check before processing","info",JOptionPane.INFORMATION_MESSAGE);
+        }
         
     }//GEN-LAST:event_processJButtonActionPerformed
 

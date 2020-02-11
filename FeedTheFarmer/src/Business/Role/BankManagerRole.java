@@ -20,6 +20,6 @@ import userinterface.BankManagerRole.BankManagerWorkAreaJPanel;
 public class BankManagerRole extends Role{
      @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new BankManagerWorkAreaJPanel(userProcessContainer, account, (BankManagerOrganization)organization, business);
+        return new BankManagerWorkAreaJPanel(userProcessContainer, account, (BankManagerOrganization)organization, enterprise, business);
     }
 }

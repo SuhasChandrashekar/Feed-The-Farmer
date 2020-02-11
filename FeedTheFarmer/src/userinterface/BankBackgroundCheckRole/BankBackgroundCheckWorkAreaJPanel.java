@@ -5,6 +5,7 @@
 package userinterface.BankBackgroundCheckRole;
 
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
 import Business.Organization.BankBackgroundCheckOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
@@ -22,17 +23,19 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem business;
+    private Enterprise enterprise;
     private UserAccount userAccount;
     private BankBackgroundCheckOrganization bankBackgroundCheckOrganization;
     
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public BankBackgroundCheckWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
+    public BankBackgroundCheckWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
+        this.enterprise = enterprise;
         this.business = business;
         this.bankBackgroundCheckOrganization = (BankBackgroundCheckOrganization)organization;
         
@@ -44,8 +47,9 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         
-        for(WorkRequest request : bankBackgroundCheckOrganization.getWorkQueue().getWorkRequestList()){
-            if(request.getStatus().equalsIgnoreCase("Intermidate")){
+        for(WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()){
+            if(request.getStatus().equalsIgnoreCase("Intermidate") || request.getStatus().equalsIgnoreCase("Background Pending") 
+                || request.getStatus().equalsIgnoreCase("Processing Background") || request.getStatus().equalsIgnoreCase("Background completed")){
             Object[] row = new Object[4];
             row[0] = request;
             row[1] = request.getSender().getEmployee().getName();
@@ -144,7 +148,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
         
         WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
         request.setReceiver(userAccount);
-        request.setStatus("Pending");
+        request.setStatus("Background Pending");
         populateTable();
         
     }//GEN-LAST:event_assignJButtonActionPerformed
@@ -159,7 +163,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
         
         BankLoanWorkRequest request = (BankLoanWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
      
-        request.setStatus("Processing");
+        request.setStatus("Processing Background");
         
         ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);

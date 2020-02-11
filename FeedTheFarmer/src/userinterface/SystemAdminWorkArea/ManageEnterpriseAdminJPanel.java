@@ -8,7 +8,12 @@ import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Role.AdminRole;
+import Business.Role.BankAdminRole;
+import Business.Role.FarmerAssoicationAdminRole;
+import Business.Role.NGOAdminRole;
+import Business.Role.GovernmentAdminRole;
+import Business.Role.MircofinanceInstitutionAdminRole;
+import Business.Role.SupplierAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -250,7 +255,22 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         
         Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
         
-        UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AdminRole());
+        UserAccount account = null;
+        
+        if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.FarmersAssociation) {
+            account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FarmerAssoicationAdminRole());
+        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.NGO) {
+            account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new NGOAdminRole());
+        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Govenment) {
+            account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new GovernmentAdminRole());
+        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Supplier) {
+            account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new SupplierAdminRole());
+        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Bank) {
+            account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new BankAdminRole());
+        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.MicrofinanceInstitution) {
+            account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new MircofinanceInstitutionAdminRole());
+        }
+        
         populateTable();
         
     }//GEN-LAST:event_submitJButtonActionPerformed

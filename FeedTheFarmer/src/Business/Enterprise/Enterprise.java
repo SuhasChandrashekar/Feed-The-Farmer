@@ -27,8 +27,7 @@ public abstract class Enterprise extends Organization{
         Govenment("Government"),
         Supplier("Supplier"),
         Bank("Bank"),
-        MicrofinanceInstitution("Microfinance Institution"),
-        Market("Market");
+        MicrofinanceInstitution("Microfinance Institution");
         
         private String value;
         

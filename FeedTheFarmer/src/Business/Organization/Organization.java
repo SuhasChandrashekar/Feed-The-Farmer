@@ -25,7 +25,25 @@ public abstract class Organization {
     private static int counter=0;
     
     public enum Type{
-        Admin("Admin Organization"), Doctor("Doctor Organization"), Lab("Lab Organization");
+        Admin("Admin"),
+        FarmerAssoicationAdminOrganization("Farmer Assoication Admin Organization"), 
+        FarmerOrganization("Farmer Organization"),
+        NGOAdminOrganization("NGO Admin Organization"),
+        NGOOrganization("NGO Organization"),
+        SubsidyAdminOrganization("Subsidy Admin Organization"),
+        SubsidyManagerOrganization("Subsidy Manager Organization"),
+        SubsidyBackgroundCheckOrganization("Subsidy Background-Check Organization"),
+        BankAdminOrganization("Bank Admin Organization"),
+        BankManagerOrganization("Bank Manager Organization"),
+        BankBackgroundCheckOrganization("Bank Background-Check Organization"),
+        MircofinanceInstitutionAdminOrganization("Mircofinance Institution Admin Organization"),
+        MircofinanceManagerOrganization("Mircofinance Manager Organization"),
+        MircofinanceBackgroundCheckOrganization("Mircofinance Background-Check kOrganization"),
+        SupplierAdminOrganization("Supplier Admin Organization"),
+        FertlizerSupplierOrganization("Fertlizer Supplier Organization"),
+        SeedSupplierOrganization("Seed Supplier Organization"),
+        EquipmentSupplierOrganization("Equipment Supplier Organization");
+        
         private String value;
         private Type(String value) {
             this.value = value;

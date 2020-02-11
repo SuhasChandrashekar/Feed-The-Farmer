@@ -55,10 +55,7 @@ public class EnterpriseDirectory {
             enterprise=new MicrofinanceInstitutionEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.Market){
-            enterprise=new MarketEnterprise(name);
-            enterpriseList.add(enterprise);
-        }
+        
         return enterprise;
     }
     

@@ -18,7 +18,24 @@ import javax.swing.JPanel;
 public abstract class Role {
     
     public enum RoleType{
-        Admin("Admin");
+        Admin("Admin"),
+        BankAdminRole("Bank Admin"),
+        BankBackgroundCheckRole("Bank Background-Check Role"),
+        BankManagerRole("BankManager Role"),
+        EquipmentSupplierRole("Equipment Supplier Role"),
+        FarmerAssoicationAdminRole("Farmer Assoication Admin Role"),
+        FarmerRole("Farmer Assoication Admin Role"),
+        FertlizerSupplierRole("Fertlizer Supplier Role"),
+        MircofinanceBackgroundCheckRole("Mircofinance Background-Check Role"),
+        MircofinanceInstitutionAdminRole("Mircofinance Institution Admin Role"),
+        MircofinanceManagerRole("Mircofinance Manager Role"),
+        NGOAdminRole("NGO Admin Role"),
+        NGORole("NGO Role"),
+        SeedSupplierRole("Seed Supplier Role"),
+        SubsidyAdminRole("Subsidy Admin Role"),
+        SubsidyBackgroundCheckRole("Subsidy Background-Check Role"),
+        SubsidyManagerRole("Subsidy Manager Role"),
+        SupplierAdminRole("Supplier Admin Role");
         
         private String value;
         private RoleType(String value){

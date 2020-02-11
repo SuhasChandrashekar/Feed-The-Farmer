@@ -20,6 +20,6 @@ import userinterface.BankBackgroundCheckRole.BankBackgroundCheckWorkAreaJPanel;
 public class BankBackgroundCheckRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new BankBackgroundCheckWorkAreaJPanel(userProcessContainer, account, (BankBackgroundCheckOrganization)organization, business);
+        return new BankBackgroundCheckWorkAreaJPanel(userProcessContainer, account, (BankBackgroundCheckOrganization)organization, enterprise, business);
     }
 }

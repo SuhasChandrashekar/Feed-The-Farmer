@@ -2,6 +2,7 @@
 
 package userinterface.FarmerAssoicationAdminRole;
 
+import Business.EcoSystem;
 import userinterface.AdministrativeRole.*;
 import Business.Enterprise.Enterprise;
 import java.awt.CardLayout;
@@ -15,11 +16,13 @@ public class FarmerAssoicationAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     Enterprise enterprise;
+    EcoSystem business;
     /** Creates new form AdminWorkAreaJPanel */
-    public FarmerAssoicationAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public FarmerAssoicationAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
+        this.business = business;
         valueLabel.setText(enterprise.getName());
     }
     

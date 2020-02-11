@@ -57,4 +57,7 @@ public abstract class Enterprise extends Organization{
         organizationDirectory=new OrganizationDirectory();
     }
     
+    public String toString(){
+        return this.getName();
+    }
 }

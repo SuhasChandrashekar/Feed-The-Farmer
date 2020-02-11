@@ -19,6 +19,6 @@ import userinterface.FarmerAssoicationAdminRole.FarmerAssoicationAdminWorkAreaJP
 public class FarmerAssoicationAdminRole extends Role{
      @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new FarmerAssoicationAdminWorkAreaJPanel(userProcessContainer, enterprise);
+        return new FarmerAssoicationAdminWorkAreaJPanel(userProcessContainer, enterprise, business);
     }
 }

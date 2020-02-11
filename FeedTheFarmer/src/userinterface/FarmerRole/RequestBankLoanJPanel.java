@@ -5,10 +5,10 @@
 package userinterface.FarmerRole;
 
 import Business.EcoSystem;
+import Business.Enterprise.BankEnterprise;
 import Business.Enterprise.Enterprise;
-import Business.Enterprise.NGOEnterprise;
 import Business.Network.Network;
-import Business.Organization.NGOOrganization;
+import Business.Organization.BankManagerOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.BankLoanWorkRequest;
@@ -140,19 +140,12 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
         request.setLoanAmount(loanAmount);
         request.setLoanResaon(loanResaon);
         
-//        Organization org = null;
-//        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
-//             if (organization instanceof NGOOrganization){
-//                org = organization;
-//                break;
-//            }
-//        }
         Organization org = null;
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                if (enterprise instanceof NGOEnterprise) {
+                if (enterprise instanceof BankEnterprise) {
                     for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                        if (organization instanceof NGOOrganization) {
+                        if (organization instanceof BankManagerOrganization) {
                             org = organization;
                             //                            System.out.println("orgname" + organization.getName());
                             org.getWorkQueue().getWorkRequestList().add(request);

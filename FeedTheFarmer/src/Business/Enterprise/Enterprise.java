@@ -23,7 +23,6 @@ public abstract class Enterprise extends Organization{
     
     public enum EnterpriseType{
         FarmersAssociation("Farmers Association"),
-        NGO("NGO"),
         Govenment("Government"),
         Supplier("Supplier"),
         Bank("Bank"),

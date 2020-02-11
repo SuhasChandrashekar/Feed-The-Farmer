@@ -35,10 +35,6 @@ public class EnterpriseDirectory {
             enterprise=new FarmersAssociation(name);
             enterpriseList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.NGO){
-            enterprise=new NGOEnterprise(name);
-            enterpriseList.add(enterprise);
-        }
         else if(type==Enterprise.EnterpriseType.Govenment){
             enterprise=new GovenmentEnterprise(name);
             enterpriseList.add(enterprise);

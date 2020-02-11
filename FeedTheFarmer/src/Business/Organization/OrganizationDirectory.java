@@ -33,14 +33,6 @@ public class OrganizationDirectory {
             organization = new FarmerOrganization();
             organizationList.add(organization);
         }
-        else if (type.getValue().equals(Organization.Type.NGOAdminOrganization.getValue())){
-            organization = new NGOAdminOrganization();
-            organizationList.add(organization);
-        }
-        else if (type.getValue().equals(Organization.Type.NGOOrganization.getValue())){
-            organization = new NGOOrganization();
-            organizationList.add(organization);
-        }
         else if (type.getValue().equals(Organization.Type.SubsidyAdminOrganization.getValue())){
             organization = new GovernmentAdminOrganization();
             organizationList.add(organization);

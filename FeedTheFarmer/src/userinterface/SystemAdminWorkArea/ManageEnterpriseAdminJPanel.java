@@ -10,7 +10,6 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Role.BankAdminRole;
 import Business.Role.FarmerAssoicationAdminRole;
-import Business.Role.NGOAdminRole;
 import Business.Role.GovernmentAdminRole;
 import Business.Role.MircofinanceInstitutionAdminRole;
 import Business.Role.SupplierAdminRole;
@@ -259,8 +258,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         
         if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.FarmersAssociation) {
             account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FarmerAssoicationAdminRole());
-        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.NGO) {
-            account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new NGOAdminRole());
         } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Govenment) {
             account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new GovernmentAdminRole());
         } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Supplier) {

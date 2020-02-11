@@ -28,8 +28,6 @@ public abstract class Organization {
         Admin("Admin"),
         FarmerAssoicationAdminOrganization("Farmer Assoication Admin Organization"), 
         FarmerOrganization("Farmer Organization"),
-        NGOAdminOrganization("NGO Admin Organization"),
-        NGOOrganization("NGO Organization"),
         SubsidyAdminOrganization("Subsidy Admin Organization"),
         SubsidyManagerOrganization("Subsidy Manager Organization"),
         SubsidyBackgroundCheckOrganization("Subsidy Background-Check Organization"),

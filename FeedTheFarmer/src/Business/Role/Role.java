@@ -29,8 +29,6 @@ public abstract class Role {
         MircofinanceBackgroundCheckRole("Mircofinance Background-Check Role"),
         MircofinanceInstitutionAdminRole("Mircofinance Institution Admin Role"),
         MircofinanceManagerRole("Mircofinance Manager Role"),
-        NGOAdminRole("NGO Admin Role"),
-        NGORole("NGO Role"),
         SeedSupplierRole("Seed Supplier Role"),
         SubsidyAdminRole("Subsidy Admin Role"),
         SubsidyBackgroundCheckRole("Subsidy Background-Check Role"),

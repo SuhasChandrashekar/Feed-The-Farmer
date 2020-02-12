@@ -163,7 +163,7 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         FarmerWorkAreaJPanel dwjp = (FarmerWorkAreaJPanel) component;
-        dwjp.populateRequestTable();
+        dwjp.populateLoanRequestTable();
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
         

@@ -8,9 +8,10 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.Organization.SubsidyManagerOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.AdministrativeRole.AdminWorkAreaJPanel;
+import userinterface.SubsidyManagerRole.SubsidyManagerWorkAreaJPanel;
 
 /**
  *
@@ -19,6 +20,6 @@ import userinterface.AdministrativeRole.AdminWorkAreaJPanel;
 public class SubsidyManagerRole extends Role{
      @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
+        return new SubsidyManagerWorkAreaJPanel(userProcessContainer, account, (SubsidyManagerOrganization)organization, enterprise, business);
     }
 }

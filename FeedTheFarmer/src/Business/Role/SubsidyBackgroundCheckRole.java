@@ -8,9 +8,10 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.Organization.SubsidyBackgroundCheckOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.AdministrativeRole.AdminWorkAreaJPanel;
+import userinterface.SubsidyBackgroundCheckRole.SubsidyBackgroundCheckWorkAreaJPanel;
 
 /**
  *
@@ -19,6 +20,6 @@ import userinterface.AdministrativeRole.AdminWorkAreaJPanel;
 public class SubsidyBackgroundCheckRole extends Role{
      @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
+        return new  SubsidyBackgroundCheckWorkAreaJPanel(userProcessContainer, account, (SubsidyBackgroundCheckOrganization)organization, enterprise, business);
     }
 }

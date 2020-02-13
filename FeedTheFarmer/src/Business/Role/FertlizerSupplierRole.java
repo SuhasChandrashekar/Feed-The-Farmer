@@ -23,4 +23,7 @@ public class FertlizerSupplierRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new FertlizerSupplierWorkAreaJPanel(userProcessContainer, account, (FertlizerSupplierOrganization)organization, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.FertlizerSupplierRole.getValue();
+    }
 }

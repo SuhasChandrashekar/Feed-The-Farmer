@@ -22,4 +22,7 @@ public class SeedSupplierRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new SeedSupplierWorkAreaJPanel(userProcessContainer, account, (SeedSupplierOrganization)organization, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.SeedSupplierRole.getValue();
+    }
 }

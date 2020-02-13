@@ -22,4 +22,7 @@ public class SubsidyBackgroundCheckRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new  SubsidyBackgroundCheckWorkAreaJPanel(userProcessContainer, account, (SubsidyBackgroundCheckOrganization)organization, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.SubsidyBackgroundCheckRole.getValue();
+    }
 }

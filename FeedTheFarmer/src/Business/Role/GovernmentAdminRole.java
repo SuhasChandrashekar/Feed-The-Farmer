@@ -22,4 +22,7 @@ public class GovernmentAdminRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new GovnAdminWorkAreaJPanel(userProcessContainer, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.SubsidyAdminRole.getValue();
+    }
 }

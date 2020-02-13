@@ -22,4 +22,7 @@ public class EquipmentSupplierRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new EquipmentSupplierWorkAreaJPanel(userProcessContainer, account, (EquipmentSupplierOrganization)organization, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.EquipmentSupplierRole.getValue();
+    }
 }

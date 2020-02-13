@@ -21,4 +21,7 @@ public class MircofinanceInstitutionAdminRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new MicroFinanceAdminWorkAreaJPanel(userProcessContainer, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.MircofinanceInstitutionAdminRole.getValue();
+    }
 }

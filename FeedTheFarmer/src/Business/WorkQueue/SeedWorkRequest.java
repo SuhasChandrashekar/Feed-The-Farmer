@@ -14,6 +14,15 @@ public class SeedWorkRequest extends WorkRequest{
     private String address;
     private String seedName;
     private int quantity;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getAddress() {
         return address;

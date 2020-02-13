@@ -112,6 +112,7 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         messageJTextField = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(194, 223, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         requestTestJButton.setText("Request Loan");
@@ -120,7 +121,7 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
                 requestTestJButtonActionPerformed(evt);
             }
         });
-        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 570, -1, -1));
+        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 710, -1, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -128,63 +129,63 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 720, -1, -1));
 
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 130, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 120, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 120, 30));
 
         jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
 
         nameJTextField.setEditable(false);
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 89, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 160, -1));
 
         jLabel3.setText("Age");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
-        add(ageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 89, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
+        add(ageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 160, -1));
 
         jLabel4.setText("Address");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
-        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 89, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
+        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 160, -1));
 
         jLabel5.setText("Bank Name");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
 
         jLabel6.setText("Loan Amount");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
-        add(loanAmountJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 89, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, -1, -1));
+        add(loanAmountJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 160, -1));
 
         jLabel7.setText("Pan Card/ID");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, -1, -1));
-        add(agricultureLandAddJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 89, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, -1, -1));
+        add(agricultureLandAddJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 160, -1));
 
         jLabel8.setText("Reason for Loan");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
-        add(loanReasonJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 89, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, -1, -1));
+        add(loanReasonJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 160, -1));
 
         jLabel9.setText("Annual Income");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
 
         jLabel10.setText("Address Of Agriculture Land");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, -1, -1));
 
         jLabel11.setText("Proof of Value Of Agriculture Land");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, -1, -1));
 
         jLabel12.setText("Email Id");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
-        add(emailIdJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 89, -1));
-        add(annualIncomeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 89, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, -1, -1));
+        add(emailIdJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 510, 160, -1));
+        add(annualIncomeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 160, -1));
 
         panCardPathJTextField.setEditable(false);
-        add(panCardPathJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, 89, -1));
+        add(panCardPathJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 590, 160, -1));
 
         valueOfAgricultureLandJTextField.setEditable(false);
-        add(valueOfAgricultureLandJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 89, -1));
+        add(valueOfAgricultureLandJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 470, 160, -1));
 
         landUploadjButton.setText("Upload");
         landUploadjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -192,14 +193,14 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
                 landUploadjButtonActionPerformed(evt);
             }
         });
-        add(landUploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, -1, -1));
+        add(landUploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 470, -1, -1));
 
         jLabel13.setText("Phone No.");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
-        add(phoneNoJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 89, -1));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, -1, -1));
+        add(phoneNoJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 160, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 160, -1));
 
         panUploadjButton1.setText("Upload");
         panUploadjButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -207,11 +208,11 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
                 panUploadjButton1ActionPerformed(evt);
             }
         });
-        add(panUploadjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, -1, -1));
+        add(panUploadjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, -1));
 
         jLabel1.setText("Additional Comments");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, -1, -1));
-        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 89, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 640, -1, -1));
+        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 630, 160, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
@@ -327,7 +328,8 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
 
             }}
         }
-        
+         JOptionPane.showMessageDialog(null,"Successfully applied for loan","INFO",JOptionPane.INFORMATION_MESSAGE);
+        backJButtonActionPerformed(evt);
     }//GEN-LAST:event_requestTestJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

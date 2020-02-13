@@ -10,6 +10,7 @@ import Business.WorkQueue.BankLoanWorkRequest;
 import Business.WorkQueue.SubsidyWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -44,6 +45,8 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         rejectjButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(194, 223, 252));
+
         approveJButton.setText("Approve");
         approveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,22 +75,23 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(236, 236, 236)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(backJButton))
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(backJButton)
-                    .addComponent(jLabel1))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(approveJButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(rejectjButton1)
-                .addGap(47, 47, 47))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(approveJButton)
+                        .addGap(59, 59, 59)
+                        .addComponent(rejectjButton1))
+                    .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(355, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(122, 122, 122)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -96,7 +100,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                     .addComponent(approveJButton)
                     .addComponent(backJButton)
                     .addComponent(rejectjButton1))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(679, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,13 +117,17 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     private void approveJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveJButtonActionPerformed
         request.setTestResult(resultJTextField.getText());
-        request.setStatus("Background check - Approved");
+        request.setStatus("Background Check - Approved");
+        JOptionPane.showMessageDialog(null,"Background Check Approved","INFO",JOptionPane.INFORMATION_MESSAGE);
+        backJButtonActionPerformed(evt);
     }//GEN-LAST:event_approveJButtonActionPerformed
 
     private void rejectjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectjButton1ActionPerformed
         // TODO add your handling code here:
         request.setTestResult(resultJTextField.getText());
-        request.setStatus("Background check - Rejected");
+        request.setStatus("Background Check - Rejected");
+        JOptionPane.showMessageDialog(null,"Background Check Rejected","INFO",JOptionPane.INFORMATION_MESSAGE);
+        backJButtonActionPerformed(evt);
     }//GEN-LAST:event_rejectjButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

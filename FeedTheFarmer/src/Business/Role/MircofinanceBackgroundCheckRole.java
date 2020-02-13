@@ -22,4 +22,7 @@ public class MircofinanceBackgroundCheckRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new MicrofinanceBackgroundCheckWorkAreaJPanel(userProcessContainer, account, (MircofinanceBackgroundCheckOrganization)organization, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.MircofinanceBackgroundCheckRole.getValue();
+    }
 }

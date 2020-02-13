@@ -22,4 +22,7 @@ public class FarmerRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
         return new FarmerWorkAreaJPanel(userProcessContainer, account, (FarmerOrganization)organization, enterprise, system);
     }
+    public String toString() {
+        return Role.RoleType.FarmerRole.getValue();
+    }
 }

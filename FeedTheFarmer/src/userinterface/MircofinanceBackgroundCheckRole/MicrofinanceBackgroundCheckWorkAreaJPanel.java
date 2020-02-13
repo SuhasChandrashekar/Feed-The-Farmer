@@ -12,8 +12,10 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.MicroLoanWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.ViewDetails.MicroLoanWRViewJPanel;
 
 /**
  *
@@ -74,6 +76,7 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
         assignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
+        viewDetailsJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -136,6 +139,14 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
             }
         });
         add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+
+        viewDetailsJButton.setText("View Details");
+        viewDetailsJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewDetailsJButtonActionPerformed(evt);
+            }
+        });
+        add(viewDetailsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -176,11 +187,28 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
         populateTable();
     }//GEN-LAST:event_refreshJButtonActionPerformed
 
+    private void viewDetailsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsJButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+            return;
+        }
+        else{
+            MicroLoanWorkRequest request = (MicroLoanWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+            MicroLoanWRViewJPanel panel = new MicroLoanWRViewJPanel(userProcessContainer, request);
+            userProcessContainer.add("MicroLoanWRViewJPanel",panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_viewDetailsJButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;
+    private javax.swing.JButton viewDetailsJButton;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

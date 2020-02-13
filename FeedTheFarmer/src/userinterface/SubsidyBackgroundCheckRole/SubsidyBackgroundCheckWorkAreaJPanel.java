@@ -12,8 +12,10 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.SubsidyWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.ViewDetails.SubsidyWRViewJPanel;
 
 /**
  *
@@ -74,6 +76,7 @@ public class SubsidyBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
         assignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
+        viewDetailsJbutton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -136,6 +139,14 @@ public class SubsidyBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+
+        viewDetailsJbutton.setText("View Details");
+        viewDetailsJbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewDetailsJbuttonActionPerformed(evt);
+            }
+        });
+        add(viewDetailsJbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -176,11 +187,28 @@ public class SubsidyBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_refreshJButtonActionPerformed
 
+    private void viewDetailsJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsJbuttonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+            return;
+        }
+        else{
+            SubsidyWorkRequest request = (SubsidyWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+            SubsidyWRViewJPanel panel = new SubsidyWRViewJPanel(userProcessContainer, request);
+            userProcessContainer.add("SubsidyWRViewJPanel",panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_viewDetailsJbuttonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;
+    private javax.swing.JButton viewDetailsJbutton;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

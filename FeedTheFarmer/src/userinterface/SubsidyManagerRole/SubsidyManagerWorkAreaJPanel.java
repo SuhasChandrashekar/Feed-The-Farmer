@@ -15,6 +15,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.ViewDetails.SubsidyWRViewJPanel;
 
 /**
  *
@@ -74,6 +75,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
         assignJButton1 = new javax.swing.JButton();
+        viewDetails = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -144,6 +146,14 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(assignJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
+
+        viewDetails.setText("View Details");
+        viewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewDetailsActionPerformed(evt);
+            }
+        });
+        add(viewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backgroundCheckJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backgroundCheckJButtonActionPerformed
@@ -220,12 +230,29 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_assignJButton1ActionPerformed
 
+    private void viewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+            return;
+        }
+        else{
+            SubsidyWorkRequest request = (SubsidyWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+            SubsidyWRViewJPanel panel = new SubsidyWRViewJPanel(userProcessContainer, request);
+            userProcessContainer.add("SubsidyWRViewJPanel",panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_viewDetailsActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton1;
     private javax.swing.JButton backgroundCheckJButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;
+    private javax.swing.JButton viewDetails;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

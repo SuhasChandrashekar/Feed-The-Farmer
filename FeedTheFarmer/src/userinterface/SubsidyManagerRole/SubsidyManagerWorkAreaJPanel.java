@@ -77,6 +77,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
         assignJButton1 = new javax.swing.JButton();
         viewDetails = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(194, 223, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -113,7 +114,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 920, 100));
 
         backgroundCheckJButton.setText("Backgroud Check");
         backgroundCheckJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +122,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
                 backgroundCheckJButtonActionPerformed(evt);
             }
         });
-        add(backgroundCheckJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, -1));
+        add(backgroundCheckJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, -1, -1));
 
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +130,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +138,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 60, -1, -1));
 
         assignJButton1.setText("Assign to me");
         assignJButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +146,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButton1ActionPerformed(evt);
             }
         });
-        add(assignJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
+        add(assignJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
 
         viewDetails.setText("View Details");
         viewDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +154,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
                 viewDetailsActionPerformed(evt);
             }
         });
-        add(viewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
+        add(viewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backgroundCheckJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backgroundCheckJButtonActionPerformed
@@ -176,7 +177,7 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
             request.setReceiver(null);
            // populateProcessTable();
             populateTable();
-
+                JOptionPane.showMessageDialog(null, "Request forwarded to Background Officer","info",JOptionPane.INFORMATION_MESSAGE);
                 }}else {
 
         JOptionPane.showMessageDialog(null, "Kindly assign the request first!!","info",JOptionPane.INFORMATION_MESSAGE);
@@ -195,9 +196,8 @@ public class SubsidyManagerWorkAreaJPanel extends javax.swing.JPanel {
         
         SubsidyWorkRequest request = (SubsidyWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
         
-        if(request.getStatus().equalsIgnoreCase("Background completed")){
+        if(request.getStatus().equalsIgnoreCase("Background Check - Approved") || request.getStatus().equalsIgnoreCase("Background Check - Rejected")){
      
-        request.setStatus("Processing");
         
         ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);

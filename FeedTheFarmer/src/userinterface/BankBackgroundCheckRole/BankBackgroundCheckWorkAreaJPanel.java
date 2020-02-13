@@ -51,7 +51,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
         
         for(WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()){
             if(request.getStatus().equalsIgnoreCase("Intermidate") || request.getStatus().equalsIgnoreCase("Background Pending") 
-                || request.getStatus().equalsIgnoreCase("Processing Background") || request.getStatus().equalsIgnoreCase("Background completed")){
+                || request.getStatus().equalsIgnoreCase("Processing Background") || request.getStatus().equalsIgnoreCase("Background Check - Approved")||request.getStatus().equalsIgnoreCase("Background Check - Rejected")){
             Object[] row = new Object[4];
             row[0] = request;
             row[1] = request.getSender().getEmployee().getName();
@@ -78,6 +78,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
         refreshJButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(194, 223, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,7 +115,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 890, 120));
 
         assignJButton.setText("Assign to me");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +123,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +131,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +139,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, 140, -1));
 
         jButton1.setText("View Details");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +147,7 @@ public class BankBackgroundCheckWorkAreaJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

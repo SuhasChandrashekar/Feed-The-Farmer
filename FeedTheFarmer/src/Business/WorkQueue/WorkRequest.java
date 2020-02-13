@@ -6,6 +6,7 @@
 package Business.WorkQueue;
 
 import Business.UserAccount.UserAccount;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -57,8 +58,10 @@ public class WorkRequest {
         this.status = status;
     }
 
-    public Date getRequestDate() {
-        return requestDate;
+    public String getRequestDate() {
+         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateString = format.format(this.requestDate);
+        return dateString;
     }
 
     public void setRequestDate(Date requestDate) {
@@ -71,6 +74,10 @@ public class WorkRequest {
 
     public void setResolveDate(Date resolveDate) {
         this.resolveDate = resolveDate;
+    }
+     @Override
+    public String toString() {
+        return this.getRequestDate();
     }
     
 }

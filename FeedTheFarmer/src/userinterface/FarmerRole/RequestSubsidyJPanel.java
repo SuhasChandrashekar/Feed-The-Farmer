@@ -105,6 +105,7 @@ public class RequestSubsidyJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         messageJTextField = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(194, 223, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         requestTestJButton.setText("Request Subsidy");
@@ -113,7 +114,7 @@ public class RequestSubsidyJPanel extends javax.swing.JPanel {
                 requestTestJButtonActionPerformed(evt);
             }
         });
-        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, -1, -1));
+        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, -1, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -121,56 +122,56 @@ public class RequestSubsidyJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 650, -1, -1));
 
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 260, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 120, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 120, 30));
 
         jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
 
         nameJTextField.setEditable(false);
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 89, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 180, -1));
 
         jLabel3.setText("Age");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
-        add(ageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 89, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+        add(ageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 180, -1));
 
         jLabel4.setText("Address");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
-        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 89, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, -1, -1));
+        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 180, -1));
 
         jLabel5.setText("Gov Name");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
 
         jLabel6.setText("Expected Income");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-        add(expectedIncomeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 89, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, -1));
+        add(expectedIncomeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 180, -1));
 
         jLabel7.setText("Actual Income");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
-        add(actualIncomeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 89, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, -1, -1));
+        add(actualIncomeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 180, -1));
 
         banknamejComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(banknamejComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 110, -1));
+        add(banknamejComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 180, -1));
 
         jLabel12.setText("Email Id");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
-        add(emailIdJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 89, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, -1));
+        add(emailIdJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 180, -1));
 
         jLabel13.setText("Phone No.");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
-        add(phoneNoJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 89, -1));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, -1));
+        add(phoneNoJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 180, -1));
 
         jLabel8.setText("Proof of Income");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, -1, -1));
 
         panCardPathJTextField.setEditable(false);
-        add(panCardPathJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 89, -1));
+        add(panCardPathJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 180, -1));
 
         panUploadjButton.setText("Upload");
         panUploadjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -178,11 +179,11 @@ public class RequestSubsidyJPanel extends javax.swing.JPanel {
                 panUploadjButtonActionPerformed(evt);
             }
         });
-        add(panUploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, -1, -1));
+        add(panUploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, -1, -1));
 
         jLabel1.setText("Message");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, -1));
-        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 89, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, -1));
+        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 180, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
@@ -286,7 +287,8 @@ public class RequestSubsidyJPanel extends javax.swing.JPanel {
 
             }}
         }
-        
+        JOptionPane.showMessageDialog(null,"Successfully applied for subsidy","INFO",JOptionPane.INFORMATION_MESSAGE);
+        backJButtonActionPerformed(evt);
     }//GEN-LAST:event_requestTestJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

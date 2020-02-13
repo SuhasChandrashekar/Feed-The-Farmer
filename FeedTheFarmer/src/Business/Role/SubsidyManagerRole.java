@@ -22,4 +22,7 @@ public class SubsidyManagerRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new SubsidyManagerWorkAreaJPanel(userProcessContainer, account, (SubsidyManagerOrganization)organization, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.SubsidyManagerRole.getValue();
+    }
 }

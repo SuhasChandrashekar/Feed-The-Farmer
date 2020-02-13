@@ -20,20 +20,20 @@ public abstract class Role {
     public enum RoleType{
         Admin("Admin"),
         BankAdminRole("Bank Admin"),
-        BankBackgroundCheckRole("Bank Background-Check Role"),
-        BankManagerRole("BankManager Role"),
-        EquipmentSupplierRole("Equipment Supplier Role"),
-        FarmerAssoicationAdminRole("Farmer Assoication Admin Role"),
-        FarmerRole("Farmer Assoication Admin Role"),
-        FertlizerSupplierRole("Fertlizer Supplier Role"),
-        MircofinanceBackgroundCheckRole("Mircofinance Background-Check Role"),
-        MircofinanceInstitutionAdminRole("Mircofinance Institution Admin Role"),
-        MircofinanceManagerRole("Mircofinance Manager Role"),
-        SeedSupplierRole("Seed Supplier Role"),
-        SubsidyAdminRole("Subsidy Admin Role"),
-        SubsidyBackgroundCheckRole("Subsidy Background-Check Role"),
-        SubsidyManagerRole("Subsidy Manager Role"),
-        SupplierAdminRole("Supplier Admin Role");
+        BankBackgroundCheckRole("Bank Background-Check"),
+        BankManagerRole("Bank Manager"),
+        EquipmentSupplierRole("Equipment Supplier"),
+        FarmerAssoicationAdminRole("Farmer Assoication Admin"),
+        FarmerRole("Farmer Assoication Admin"),
+        FertlizerSupplierRole("Fertlizer Supplier"),
+        MircofinanceBackgroundCheckRole("Mircofinance Background-Check"),
+        MircofinanceInstitutionAdminRole("Mircofinance Institution Admin"),
+        MircofinanceManagerRole("Mircofinance Manager"),
+        SeedSupplierRole("Seed Supplier"),
+        SubsidyAdminRole("Government Admin"),
+        SubsidyBackgroundCheckRole("Subsidy Background-Check"),
+        SubsidyManagerRole("Subsidy Manager"),
+        SupplierAdminRole("Supplier Admin");
         
         private String value;
         private RoleType(String value){

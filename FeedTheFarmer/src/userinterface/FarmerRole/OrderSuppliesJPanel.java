@@ -17,6 +17,7 @@ import Business.WorkQueue.EquipmentWorkRequest;
 import Business.WorkQueue.FertilizerWorkRequest;
 import Business.WorkQueue.SeedWorkRequest;
 import Business.WorkQueue.WorkRequest;
+import com.sun.org.apache.regexp.internal.REUtil;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -86,6 +87,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         nameTxtField = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(194, 223, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         requestTestJButton.setText("Order Supplies");
@@ -94,11 +96,11 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
                 requestTestJButtonActionPerformed(evt);
             }
         });
-        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
+        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, -1, -1));
 
         jLabel1.setText("Select Supply");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
-        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 89, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
+        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 130, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -106,26 +108,26 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, -1, -1));
 
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 200, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 120, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 120, 30));
 
         jLabel2.setText("Item Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
-        add(NameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 89, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
+        add(NameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 130, -1));
 
         jLabel4.setText("Address");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
-        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 89, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
+        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 130, -1));
 
         jLabel6.setText("Quantity");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-        add(quantityJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 89, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
+        add(quantityJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 130, -1));
 
         categoryJCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seed", "Fertilizer", "Equipment" }));
         categoryJCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -133,22 +135,22 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
                 categoryJComboActionPerformed(evt);
             }
         });
-        add(categoryJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
+        add(categoryJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 130, -1));
 
         jLabel3.setText("Additional Comments");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, -1, -1));
 
         supplierComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(supplierComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
+        add(supplierComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 130, -1));
 
         jLabel5.setText("Supplier");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
 
         jLabel7.setText("Name");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
 
         nameTxtField.setEditable(false);
-        add(nameTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 120, -1));
+        add(nameTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
@@ -157,7 +159,15 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         String name = NameJTextField.getText();
         String address = addressJTextField.getText();
         String supplier = (String)supplierComboBox1.getSelectedItem();
-        int quantity = Integer.parseInt(quantityJTextField.getText());
+        int quantity;
+        
+        try{
+               quantity = Integer.parseInt(quantityJTextField.getText());
+            }
+            catch(NumberFormatException e)           
+                { JOptionPane.showMessageDialog(null,"Please enter number for quantity");
+                return;
+            }
         
         if(category.equals("")||address.equals("")||supplier.equals("")||name.equals(""))
         {
@@ -172,7 +182,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
             request.setSeedName(name);
             request.setAddress(address);
             request.setQuantity(quantity);
-        
+            request.setName(userAccount.getUsername());
         
         Organization org = null;
         for (Network network : system.getNetworkList()) {
@@ -199,6 +209,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
             request.setFertilizerName(name);
             request.setAddress(address);
             request.setQuantity(quantity);
+            request.setName(userAccount.getUsername());
         
         
         Organization org = null;
@@ -227,6 +238,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
             request.setEquipmentName(name);
             request.setAddress(address);
             request.setQuantity(quantity);
+            request.setName(userAccount.getUsername());
         
         
         Organization org = null;
@@ -246,7 +258,8 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
             }}
         }
         }
-        
+        JOptionPane.showMessageDialog(null,"Order Successfully placed","INFO",JOptionPane.INFORMATION_MESSAGE);
+        backJButtonActionPerformed(evt);
     }//GEN-LAST:event_requestTestJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

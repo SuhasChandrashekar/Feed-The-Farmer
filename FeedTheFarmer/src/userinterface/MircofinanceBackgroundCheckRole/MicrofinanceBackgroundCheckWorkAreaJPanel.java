@@ -51,7 +51,7 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
         
         for(WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()){
             if(request.getStatus().equalsIgnoreCase("Intermidate") || request.getStatus().equalsIgnoreCase("Background Pending") 
-                || request.getStatus().equalsIgnoreCase("Processing Background") || request.getStatus().equalsIgnoreCase("Background completed")){
+                || request.getStatus().equalsIgnoreCase("Processing Background") || request.getStatus().equalsIgnoreCase("Background Check - Approved")||request.getStatus().equalsIgnoreCase("Background Check - Rejected")){
             Object[] row = new Object[4];
             row[0] = request;
             row[1] = request.getSender().getEmployee().getName();
@@ -78,6 +78,7 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
         refreshJButton = new javax.swing.JButton();
         viewDetailsJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(194, 223, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,7 +115,7 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 910, 96));
 
         assignJButton.setText("Assign to me");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +123,7 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
 
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +131,7 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +139,7 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 70, -1, -1));
 
         viewDetailsJButton.setText("View Details");
         viewDetailsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +147,7 @@ public class MicrofinanceBackgroundCheckWorkAreaJPanel extends javax.swing.JPane
                 viewDetailsJButtonActionPerformed(evt);
             }
         });
-        add(viewDetailsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
+        add(viewDetailsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

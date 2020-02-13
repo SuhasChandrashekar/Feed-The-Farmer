@@ -22,4 +22,7 @@ public class BankBackgroundCheckRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new BankBackgroundCheckWorkAreaJPanel(userProcessContainer, account, (BankBackgroundCheckOrganization)organization, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.BankBackgroundCheckRole.getValue();
+    }
 }

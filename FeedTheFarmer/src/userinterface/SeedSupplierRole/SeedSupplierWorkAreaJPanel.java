@@ -6,15 +6,16 @@ package userinterface.SeedSupplierRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
-import Business.Organization.BankManagerOrganization;
 import Business.Organization.Organization;
 import Business.Organization.SeedSupplierOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.SeedWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.ViewDetails.SeedSupplierViewJPanel;
 
 /**
  *
@@ -73,7 +74,9 @@ public class SeedSupplierWorkAreaJPanel extends javax.swing.JPanel {
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
         assignJButton1 = new javax.swing.JButton();
+        viewDetailsjButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(194, 223, 252));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -110,7 +113,7 @@ public class SeedSupplierWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 930, 96));
 
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +121,7 @@ public class SeedSupplierWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 240, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +129,7 @@ public class SeedSupplierWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, -1, -1));
 
         assignJButton1.setText("Assign to me");
         assignJButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +137,15 @@ public class SeedSupplierWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButton1ActionPerformed(evt);
             }
         });
-        add(assignJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
+        add(assignJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+
+        viewDetailsjButton1.setText("View Details");
+        viewDetailsjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewDetailsjButton1ActionPerformed(evt);
+            }
+        });
+        add(viewDetailsjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 240, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
@@ -176,11 +187,28 @@ public class SeedSupplierWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_assignJButton1ActionPerformed
 
+    private void viewDetailsjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsjButton1ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+            return;
+        }
+        else{
+            SeedWorkRequest request = (SeedWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+            SeedSupplierViewJPanel panel = new SeedSupplierViewJPanel(userProcessContainer, request);
+            userProcessContainer.add("SeedSupplierViewJPanel",panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_viewDetailsjButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;
+    private javax.swing.JButton viewDetailsjButton1;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

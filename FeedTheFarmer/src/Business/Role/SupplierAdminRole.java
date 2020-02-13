@@ -21,4 +21,7 @@ public class SupplierAdminRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new SupplierAdminWorkAreaJPanel(userProcessContainer, enterprise, business);
     }
+    public String toString() {
+        return Role.RoleType.SupplierAdminRole.getValue();
+    }
 }

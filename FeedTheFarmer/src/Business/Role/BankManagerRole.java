@@ -22,4 +22,8 @@ public class BankManagerRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         return new BankManagerWorkAreaJPanel(userProcessContainer, account, (BankManagerOrganization)organization, enterprise, business);
     }
+    @Override
+    public String toString() {
+        return Role.RoleType.BankManagerRole.getValue();
+    }
 }

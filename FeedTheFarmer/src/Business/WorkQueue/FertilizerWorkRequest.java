@@ -14,6 +14,23 @@ public class FertilizerWorkRequest extends WorkRequest{
     private String address;
     private String fertilzerName;
     private int quantity;
+    private String name;
+
+    public String getFertilzerName() {
+        return fertilzerName;
+    }
+
+    public void setFertilzerName(String fertilzerName) {
+        this.fertilzerName = fertilzerName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getAddress() {
         return address;

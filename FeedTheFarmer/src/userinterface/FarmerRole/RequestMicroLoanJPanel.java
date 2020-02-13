@@ -13,6 +13,9 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.MicroLoanWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -63,8 +66,13 @@ public class RequestMicroLoanJPanel extends javax.swing.JPanel {
         bankNameJTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         loanAmountJTextField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        loanReasonJTextField = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        emailIdJTextField = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        phoneNoJTextField1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        panCardPathJTextField = new javax.swing.JTextField();
+        panUploadjButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -74,7 +82,7 @@ public class RequestMicroLoanJPanel extends javax.swing.JPanel {
                 requestTestJButtonActionPerformed(evt);
             }
         });
-        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
+        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, -1, -1));
 
         jLabel1.setText("Message");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 40, -1, -1));
@@ -86,7 +94,7 @@ public class RequestMicroLoanJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, -1, -1));
 
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, -1));
@@ -115,9 +123,25 @@ public class RequestMicroLoanJPanel extends javax.swing.JPanel {
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
         add(loanAmountJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 89, -1));
 
-        jLabel7.setText("Reason for Loan");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
-        add(loanReasonJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 89, -1));
+        jLabel12.setText("Email Id");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+        add(emailIdJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 89, -1));
+
+        jLabel13.setText("Phone No.");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
+        add(phoneNoJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 89, -1));
+
+        jLabel8.setText("Pan Card/ID");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
+        add(panCardPathJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 89, -1));
+
+        panUploadjButton.setText("Upload");
+        panUploadjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                panUploadjButtonActionPerformed(evt);
+            }
+        });
+        add(panUploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
@@ -127,7 +151,9 @@ public class RequestMicroLoanJPanel extends javax.swing.JPanel {
         String address = addressJTextField.getText();
         String bankName = bankNameJTextField.getText();
         int loanAmount = Integer.parseInt(loanAmountJTextField.getText());
-        String loanResaon = loanReasonJTextField.getText();
+        String emailId = emailIdJTextField.getText();
+        int phoneNo = Integer.parseInt(panCardPathJTextField.getText());
+        String fn=panCardPathJTextField.getText();
         
         MicroLoanWorkRequest request = new MicroLoanWorkRequest();
         request.setMessage(message);
@@ -136,8 +162,20 @@ public class RequestMicroLoanJPanel extends javax.swing.JPanel {
         request.setAge(age);
         request.setAddress(address);
         request.setBankName(bankName);
-        request.setLoanAmount(loanAmount);
-        request.setLoanResaon(loanResaon);
+        request.setEmailId(emailId);
+        request.setPhoneNo(phoneNo);
+        if(!fn.isEmpty())
+        {
+        if(fn.endsWith(".pdf")||fn.endsWith(".docx"))
+        {
+           request.setPancardPath(fn);
+        }
+         else
+           JOptionPane.showMessageDialog(null,"Please upload the Id in correct format","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        JOptionPane.showMessageDialog(null,"Please upload the Id","ERROR",JOptionPane.ERROR_MESSAGE);
+        
         
         Organization org = null;
         for (Network network : system.getNetworkList()) {
@@ -162,29 +200,42 @@ public class RequestMicroLoanJPanel extends javax.swing.JPanel {
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         FarmerWorkAreaJPanel dwjp = (FarmerWorkAreaJPanel) component;
-        dwjp.populateLoanRequestTable();
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
         
     }//GEN-LAST:event_backJButtonActionPerformed
+
+    private void panUploadjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panUploadjButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jc=new JFileChooser();
+        jc.showOpenDialog(null);
+        File f=jc.getSelectedFile();
+        String filename=f.getAbsolutePath();
+        panCardPathJTextField.setText(filename);
+    }//GEN-LAST:event_panUploadjButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressJTextField;
     private javax.swing.JTextField ageJTextField;
     private javax.swing.JButton backJButton;
     private javax.swing.JTextField bankNameJTextField;
+    private javax.swing.JTextField emailIdJTextField;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField loanAmountJTextField;
-    private javax.swing.JTextField loanReasonJTextField;
     private javax.swing.JTextField messageJTextField;
     private javax.swing.JTextField nameJTextField;
+    private javax.swing.JTextField panCardPathJTextField;
+    private javax.swing.JButton panUploadjButton;
+    private javax.swing.JTextField phoneNoJTextField1;
     private javax.swing.JButton requestTestJButton;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables

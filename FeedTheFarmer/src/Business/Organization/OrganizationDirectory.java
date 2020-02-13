@@ -25,16 +25,8 @@ public class OrganizationDirectory {
     
     public Organization createOrganization(Organization.Type type){
         Organization organization = null;
-        if (type.getValue().equals(Organization.Type.FarmerAssoicationAdminOrganization.getValue())){
-            organization = new FarmerAssoicationAdminOrganization();
-            organizationList.add(organization);
-        }
-        else if (type.getValue().equals(Organization.Type.FarmerOrganization.getValue())){
+        if (type.getValue().equals(Organization.Type.FarmerOrganization.getValue())){
             organization = new FarmerOrganization();
-            organizationList.add(organization);
-        }
-        else if (type.getValue().equals(Organization.Type.SubsidyAdminOrganization.getValue())){
-            organization = new GovernmentAdminOrganization();
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.SubsidyManagerOrganization.getValue())){
@@ -45,10 +37,6 @@ public class OrganizationDirectory {
             organization = new SubsidyBackgroundCheckOrganization();
             organizationList.add(organization);
         }
-        else if (type.getValue().equals(Organization.Type.BankAdminOrganization.getValue())){
-            organization = new BankAdminOrganization();
-            organizationList.add(organization);
-        }
         else if (type.getValue().equals(Organization.Type.BankManagerOrganization.getValue())){
             organization = new BankManagerOrganization();
             organizationList.add(organization);
@@ -57,20 +45,12 @@ public class OrganizationDirectory {
             organization = new BankBackgroundCheckOrganization();
             organizationList.add(organization);
         }
-        else if (type.getValue().equals(Organization.Type.MircofinanceInstitutionAdminOrganization.getValue())){
-            organization = new MircofinanceInstitutionAdminOrganization();
-            organizationList.add(organization);
-        }
         else if (type.getValue().equals(Organization.Type.MircofinanceManagerOrganization.getValue())){
             organization = new MircofinanceManagerOrganization();
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.MircofinanceBackgroundCheckOrganization.getValue())){
             organization = new MircofinanceBackgroundCheckOrganization();
-            organizationList.add(organization);
-        }
-        else if (type.getValue().equals(Organization.Type.SupplierAdminOrganization.getValue())){
-            organization = new SupplierAdminOrganization();
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.FertlizerSupplierOrganization.getValue())){

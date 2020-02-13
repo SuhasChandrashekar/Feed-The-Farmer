@@ -42,6 +42,18 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         this.system = system;
         valueLabel.setText(enterprise.getName());
+        populateSupplierComboBox(); 
+    }
+    
+    private void populateSupplierComboBox(){
+        supplierComboBox1.removeAllItems();
+         for (Network network : system.getNetworkList()) {
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enterprise instanceof SupplierEnterprise) {
+                    supplierComboBox1.addItem(enterprise.getName());
+                }
+             }
+        }
     }
 
     /**
@@ -67,6 +79,8 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         quantityJTextField = new javax.swing.JTextField();
         categoryJCombo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        supplierComboBox1 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -119,6 +133,12 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Message");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 40, -1, -1));
+
+        supplierComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(supplierComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
+
+        jLabel5.setText("Supplier");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
@@ -126,6 +146,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         String message = messageJTextField.getText();
         String name = NameJTextField.getText();
         String address = addressJTextField.getText();
+        String supplier = (String)supplierComboBox1.getSelectedItem();
         int quantity = Integer.parseInt(quantityJTextField.getText());
         
         if(category.equals("Seed")){
@@ -141,6 +162,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         Organization org = null;
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if(enterprise.getName().equalsIgnoreCase(supplier)){
                 for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList())
                 if (organization instanceof SeedSupplierOrganization) {
                             org = organization;
@@ -151,7 +173,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
                        
                 }
 
-            }
+            }}
         }
         }
         else if(category.equals("Fertilizer")){
@@ -167,6 +189,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         Organization org = null;
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if(enterprise.getName().equalsIgnoreCase(supplier)){
                 for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList())
                 if (organization instanceof FertlizerSupplierOrganization) {
                             org = organization;
@@ -177,7 +200,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
                        
                 }
 
-            }
+            }}
         }
         }
         else{
@@ -194,6 +217,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         Organization org = null;
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if(enterprise.getName().equalsIgnoreCase(supplier)){
                 for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList())
                 if (organization instanceof EquipmentSupplierOrganization) {
                             org = organization;
@@ -204,7 +228,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
                        
                 }
 
-            }
+            }}
         }
         }
         
@@ -216,8 +240,6 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         FarmerWorkAreaJPanel dwjp = (FarmerWorkAreaJPanel) component;
-        dwjp.populateLoanRequestTable();
-        dwjp.populateSeedRequestTable();
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
         
@@ -237,10 +259,12 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField messageJTextField;
     private javax.swing.JTextField quantityJTextField;
     private javax.swing.JButton requestTestJButton;
+    private javax.swing.JComboBox<String> supplierComboBox1;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }

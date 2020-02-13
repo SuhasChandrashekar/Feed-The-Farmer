@@ -26,18 +26,13 @@ public abstract class Organization {
     
     public enum Type{
         Admin("Admin"),
-        FarmerAssoicationAdminOrganization("Farmer Assoication Admin Organization"), 
         FarmerOrganization("Farmer Organization"),
-        SubsidyAdminOrganization("Subsidy Admin Organization"),
         SubsidyManagerOrganization("Subsidy Manager Organization"),
         SubsidyBackgroundCheckOrganization("Subsidy Background-Check Organization"),
-        BankAdminOrganization("Bank Admin Organization"),
         BankManagerOrganization("Bank Manager Organization"),
         BankBackgroundCheckOrganization("Bank Background-Check Organization"),
-        MircofinanceInstitutionAdminOrganization("Mircofinance Institution Admin Organization"),
         MircofinanceManagerOrganization("Mircofinance Manager Organization"),
         MircofinanceBackgroundCheckOrganization("Mircofinance Background-Check kOrganization"),
-        SupplierAdminOrganization("Supplier Admin Organization"),
         FertlizerSupplierOrganization("Fertlizer Supplier Organization"),
         SeedSupplierOrganization("Seed Supplier Organization"),
         EquipmentSupplierOrganization("Equipment Supplier Organization");

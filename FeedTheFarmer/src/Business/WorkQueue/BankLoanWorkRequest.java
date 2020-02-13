@@ -16,6 +16,60 @@ public class BankLoanWorkRequest extends WorkRequest{
     private String bankName;
     private int loanAmount;
     private String loanResaon;
+    private int annualIncome;
+    private String agricultureLandAdd;
+    private String agricultureLandValue;
+    private String emailId;
+    private int phoneNo;
+    private String pancardPath;
+
+    public String getPancardPath() {
+        return pancardPath;
+    }
+
+    public void setPancardPath(String pancardPath) {
+        this.pancardPath = pancardPath;
+    }
+
+    public int getAnnualIncome() {
+        return annualIncome;
+    }
+
+    public void setAnnualIncome(int annualIncome) {
+        this.annualIncome = annualIncome;
+    }
+
+    public String getAgricultureLandAdd() {
+        return agricultureLandAdd;
+    }
+
+    public void setAgricultureLandAdd(String agricultureLandAdd) {
+        this.agricultureLandAdd = agricultureLandAdd;
+    }
+
+    public String getAgricultureLandValue() {
+        return agricultureLandValue;
+    }
+
+    public void setAgricultureLandValue(String agricultureLandValue) {
+        this.agricultureLandValue = agricultureLandValue;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public int getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(int phoneNo) {
+        this.phoneNo = phoneNo;
+    }
 
     public int getAge() {
         return age;

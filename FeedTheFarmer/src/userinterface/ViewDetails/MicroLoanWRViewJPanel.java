@@ -35,7 +35,7 @@ public class MicroLoanWRViewJPanel extends javax.swing.JPanel {
         ageJTextField.setText(String.valueOf(request.getAge()));
         addressJTextField.setText(request.getAddress());
         bankNameJTextField.setText(request.getBankName());
-        loanAmountJTextField.setText(String.valueOf(request.getLoanAmout()));
+        loanAmountJTextField.setText(String.valueOf(request.getLoanAmount()));
         emailIdJTextField.setText(request.getEmailId());
         phoneNoJTextField1.setText(String.valueOf(request.getPhoneNo()));
         panCardPathJTextField.setText(request.getPancardPath());

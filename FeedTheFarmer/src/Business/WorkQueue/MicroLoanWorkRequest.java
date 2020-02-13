@@ -15,8 +15,26 @@ public class MicroLoanWorkRequest extends WorkRequest{
     private String address;
     private String bankName;
     private String emailId;
-    private int phoneNo;
+    private long phoneNo;
     private String pancardPath;
+    private int loanAmount;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getLoanAmount() {
+        return loanAmount;
+    }
+
+    public void setLoanAmount(int loanAmount) {
+        this.loanAmount = loanAmount;
+    }
 
     public String getEmailId() {
         return emailId;
@@ -26,11 +44,11 @@ public class MicroLoanWorkRequest extends WorkRequest{
         this.emailId = emailId;
     }
 
-    public int getPhoneNo() {
+    public long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(long phoneNo) {
         this.phoneNo = phoneNo;
     }
 

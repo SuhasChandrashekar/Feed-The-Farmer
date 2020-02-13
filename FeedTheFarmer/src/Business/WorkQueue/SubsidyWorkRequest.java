@@ -11,13 +11,22 @@ package Business.WorkQueue;
 public class SubsidyWorkRequest extends WorkRequest{
     
     private String testResult;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     private int age;
     private String address;
     private String bankName;
     private int expectedIncome;
     private int actualIncome;
     private String emailId;
-    private int phoneNo;
+    private long phoneNo;
     private String proofPath;
 
     public String getEmailId() {
@@ -28,11 +37,11 @@ public class SubsidyWorkRequest extends WorkRequest{
         this.emailId = emailId;
     }
 
-    public int getPhoneNo() {
+    public long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(long phoneNo) {
         this.phoneNo = phoneNo;
     }
 

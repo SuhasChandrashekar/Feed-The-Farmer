@@ -19,6 +19,7 @@ import Business.WorkQueue.SeedWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -42,6 +43,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         this.system = system;
         valueLabel.setText(enterprise.getName());
+        nameTxtField.setText(userAccount.getUsername());
         populateSupplierComboBox(); 
     }
     
@@ -81,6 +83,8 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         supplierComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        nameTxtField = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -94,7 +98,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Select Supply");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
-        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 37, 89, -1));
+        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 89, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +115,7 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         enterpriseLabel.setText("EnterPrise :");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 120, 30));
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Item Name");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
         add(NameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 89, -1));
 
@@ -131,14 +135,20 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         });
         add(categoryJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
-        jLabel3.setText("Message");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 40, -1, -1));
+        jLabel3.setText("Additional Comments");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
         supplierComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(supplierComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
 
         jLabel5.setText("Supplier");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+
+        jLabel7.setText("Name");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+
+        nameTxtField.setEditable(false);
+        add(nameTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 120, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
@@ -149,6 +159,11 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
         String supplier = (String)supplierComboBox1.getSelectedItem();
         int quantity = Integer.parseInt(quantityJTextField.getText());
         
+        if(category.equals("")||address.equals("")||supplier.equals("")||name.equals(""))
+        {
+             JOptionPane.showMessageDialog(null, "Item Name, category, Address and supplier are mandatory");
+            return;
+        }
         if(category.equals("Seed")){
             SeedWorkRequest request = new SeedWorkRequest();
             request.setMessage(message);
@@ -261,7 +276,9 @@ public class OrderSuppliesJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField messageJTextField;
+    private javax.swing.JTextField nameTxtField;
     private javax.swing.JTextField quantityJTextField;
     private javax.swing.JButton requestTestJButton;
     private javax.swing.JComboBox<String> supplierComboBox1;

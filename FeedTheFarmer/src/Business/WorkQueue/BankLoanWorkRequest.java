@@ -20,8 +20,17 @@ public class BankLoanWorkRequest extends WorkRequest{
     private String agricultureLandAdd;
     private String agricultureLandValue;
     private String emailId;
-    private int phoneNo;
+    private long phoneNo;
     private String pancardPath;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getPancardPath() {
         return pancardPath;
@@ -63,11 +72,11 @@ public class BankLoanWorkRequest extends WorkRequest{
         this.emailId = emailId;
     }
 
-    public int getPhoneNo() {
+    public long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(long phoneNo) {
         this.phoneNo = phoneNo;
     }
 

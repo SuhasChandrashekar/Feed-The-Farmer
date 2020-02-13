@@ -8,13 +8,14 @@ import Business.EcoSystem;
 import Business.Enterprise.BankEnterprise;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Organization.BankManagerOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.BankLoanWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -39,6 +40,7 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = account;
         this.system = system;
+        nameJTextField.setText(userAccount.getUsername());
         valueLabel.setText(enterprise.getName());
         populateBankComboBox(); 
     }
@@ -53,6 +55,20 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
              }
         }
     }
+     
+     private boolean verifyEmailId(String email){
+         Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(email);
+        boolean b = m.matches();
+        return b;
+     }
+     
+      private boolean verifyPhoneNumber(String phone){
+         Pattern p = Pattern.compile("[0-9]{10,10}");
+        Matcher m = p.matcher(phone);
+        boolean b = m.matches();
+        return b;
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,8 +80,6 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         requestTestJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        messageJTextField = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
         enterpriseLabel = new javax.swing.JLabel();
@@ -95,6 +109,8 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
         phoneNoJTextField1 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         panUploadjButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        messageJTextField = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -105,10 +121,6 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
             }
         });
         add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 570, -1, -1));
-
-        jLabel1.setText("Message");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 40, -1, -1));
-        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 37, 89, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,47 +138,53 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 120, 30));
 
         jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 89, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+
+        nameJTextField.setEditable(false);
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 89, -1));
 
         jLabel3.setText("Age");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
-        add(ageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 89, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+        add(ageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 89, -1));
 
         jLabel4.setText("Address");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
-        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 89, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 89, -1));
 
         jLabel5.setText("Bank Name");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
 
         jLabel6.setText("Loan Amount");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-        add(loanAmountJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 89, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+        add(loanAmountJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 89, -1));
 
         jLabel7.setText("Pan Card/ID");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, -1, -1));
-        add(agricultureLandAddJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 89, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, -1, -1));
+        add(agricultureLandAddJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 89, -1));
 
         jLabel8.setText("Reason for Loan");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
-        add(loanReasonJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 89, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        add(loanReasonJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 89, -1));
 
         jLabel9.setText("Annual Income");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
         jLabel10.setText("Address Of Agriculture Land");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
 
         jLabel11.setText("Proof of Value Of Agriculture Land");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
         jLabel12.setText("Email Id");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
-        add(emailIdJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 89, -1));
-        add(annualIncomeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 89, -1));
-        add(panCardPathJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 89, -1));
-        add(valueOfAgricultureLandJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 89, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+        add(emailIdJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 89, -1));
+        add(annualIncomeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 89, -1));
+
+        panCardPathJTextField.setEditable(false);
+        add(panCardPathJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, 89, -1));
+
+        valueOfAgricultureLandJTextField.setEditable(false);
+        add(valueOfAgricultureLandJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 89, -1));
 
         landUploadjButton.setText("Upload");
         landUploadjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -174,14 +192,14 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
                 landUploadjButtonActionPerformed(evt);
             }
         });
-        add(landUploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, -1));
+        add(landUploadjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, -1, -1));
 
         jLabel13.setText("Phone No.");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
-        add(phoneNoJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, 89, -1));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
+        add(phoneNoJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 89, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
 
         panUploadjButton1.setText("Upload");
         panUploadjButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -189,26 +207,73 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
                 panUploadjButton1ActionPerformed(evt);
             }
         });
-        add(panUploadjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
+        add(panUploadjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, -1, -1));
+
+        jLabel1.setText("Additional Comments");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, -1, -1));
+        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 89, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
         
-        String message = messageJTextField.getText();
-        int age = Integer.parseInt(ageJTextField.getText());
         String address = addressJTextField.getText();
         String bankName = (String)jComboBox1.getSelectedItem();
-        int loanAmount = Integer.parseInt(loanAmountJTextField.getText());
-        String loanResaon = agricultureLandAddJTextField.getText();
-        int annualIncome = Integer.parseInt(annualIncomeJTextField.getText());
+        String loanResaon = loanReasonJTextField1.getText();
         String agricultureLandAdd = agricultureLandAddJTextField.getText();
         String emailId = emailIdJTextField.getText();
-        int phoneNo = Integer.parseInt(panCardPathJTextField.getText());
         String fn=panCardPathJTextField.getText();
         String agricultureLandValue = valueOfAgricultureLandJTextField.getText();
+        String message = messageJTextField.getText();
+        String name = nameJTextField.getText();
+        if(loanResaon.equals("")||address.equals("")||bankName.equals("")||agricultureLandAdd.equals("")||emailId.equals(""))
+        {
+             JOptionPane.showMessageDialog(null, "EmailId, Address, agriculture Land Address, LoanReason  fields are mandatory");
+            return;
+        }
+        int age=0;
+        
+        try{
+               age = Integer.parseInt(ageJTextField.getText());
+            }
+            catch(NumberFormatException e)           
+                { JOptionPane.showMessageDialog(null,"Please enter number for age");
+                return;
+            }
+        
+        int loanAmount = 0;
+        try{
+               loanAmount = Integer.parseInt(loanAmountJTextField.getText());
+            }
+            catch(NumberFormatException e)           
+                { JOptionPane.showMessageDialog(null,"Please enter number for Loan Amount");
+                return;
+            }
+        int annualIncome = 0;
+        try{
+               annualIncome = Integer.parseInt(annualIncomeJTextField.getText());
+            }
+            catch(NumberFormatException e)           
+                { JOptionPane.showMessageDialog(null,"Please enter number for Annual Income");
+                return;
+            }
+        if(!verifyEmailId(emailId)){
+             JOptionPane.showMessageDialog(null,"Please enter proper email id","ERROR",JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+        long phoneNo=0;
+        try{
+               phoneNo = Long.parseLong(phoneNoJTextField1.getText());
+            }
+            catch(NumberFormatException e)           
+                { JOptionPane.showMessageDialog(null,"Please enter number for Phone Number");
+                return;
+            }
+        if(!verifyPhoneNumber(phoneNoJTextField1.getText())){
+             JOptionPane.showMessageDialog(null,"Please enter proper phone number","ERROR",JOptionPane.ERROR_MESSAGE);
+             return;
+        } 
         
         BankLoanWorkRequest request = new BankLoanWorkRequest();
-        request.setMessage(message);
         request.setSender(userAccount);
         request.setStatus("Sent");
         request.setAge(age);
@@ -220,6 +285,9 @@ public class RequestBankLoanJPanel extends javax.swing.JPanel {
         request.setAgricultureLandAdd(agricultureLandAdd);
         request.setEmailId(emailId);
         request.setPhoneNo(phoneNo);
+        request.setMessage(message);
+        request.setName(name);
+        
         if(!fn.isEmpty())
         {
         if(fn.endsWith(".pdf")||fn.endsWith(".docx"))
